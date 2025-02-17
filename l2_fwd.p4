@@ -1,8 +1,7 @@
-
 #include <v1model.p4>
 
-#define THRESHOLD 10   
-#define NUM_SRC_IPS 1024 
+const bit<4> THRESHOLD = 10;
+const bit<11> NUM_SRC_IPS = 1024;
 
 
 header ethernet_t {
@@ -26,13 +25,8 @@ header ipv4_t {
     bit<32> dstAddr;
 }
 
-struct fwd_metadata_t {
-    bit<32> l2ptr;
-    bit<24> out_bd;
-}
 
 struct metadata_t {
-    fwd_metadata_t fwd_metadata;
 }
 
 struct headers_t {
